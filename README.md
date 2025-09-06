@@ -11,7 +11,13 @@
 
 ## 安装
 
-1. 将此文件夹放入 `ComfyUI/custom_nodes/` 目录
+1. 将此文件夹放入 `ComfyUI/custom_nodes/`
+  
+   或者在 ComfyUI-Manager 中以用 Git 方式安装（输入 https://github.com/edisonchan/Comfyui-Sysinfo）；
+
+   又或者是在 custom_nodes 文件夹里执行：
+   ```git clone https://github.com/edisonchan/Comfyui-Sysinfo```
+
 2. 重启ComfyUI
 
 ## 使用
