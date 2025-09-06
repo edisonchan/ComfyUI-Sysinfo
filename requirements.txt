@@ -1,1 +1,2 @@
-# 此节点使用PyTorch获取系统信息，无需额外依赖
+py-cpuinfo
+
