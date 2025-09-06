@@ -18,7 +18,7 @@
 
 ## 使用
 
-1. 在节点菜单中找到"System Info"节点（位于utils分类下）
+1. 在节点菜单中找到"System Info"节点
 2. 添加到工作流中
 3. 点击"Check System Info"按钮
 4. 执行工作流查看结果
