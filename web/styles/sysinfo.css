@@ -1,0 +1,11 @@
+.info-item {
+    transition: background-color 0.2s ease;
+}
+.info-item:hover {
+    background-color: #4a4a4a !important;
+}
+.info-item.error {
+    color: #f55;
+    text-align: center;
+    padding: 8px;
+}
