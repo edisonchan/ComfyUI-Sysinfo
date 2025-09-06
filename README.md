@@ -12,9 +12,7 @@
 ## 安装
 
 1. 将此文件夹放入 `ComfyUI/custom_nodes/` 目录
-2. 执行
-   ```pip install py-cpuinfo```
-4. 重启ComfyUI
+2. 重启ComfyUI
 
 ## 使用
 
