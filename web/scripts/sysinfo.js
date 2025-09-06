@@ -65,6 +65,7 @@ app.registerExtension({
                 
                 // Store reference to the current node instance
                 const nodeInstance = this;
+                nodeInstance.setSize([400, 200]); // 默认宽度400，高度200
                 
                 // Create refresh button - fixed height
                 const button = document.createElement("button");
@@ -248,33 +249,32 @@ function createInfoItem(container, label, value, isNotInstalled = false) {
     container.appendChild(item);
 }
 
-// Function to adjust node size adaptively
 function adjustNodeSize(nodeInstance, infoContainer) {
-    // Calculate maximum width of all info items
     const infoItems = infoContainer.querySelectorAll('.info-item');
-    let maxWidth = 0;
     
+    // 宽度计算（保持原逻辑）
+    let maxWidth = 0;
     infoItems.forEach(item => {
         const itemWidth = item.scrollWidth;
         if (itemWidth > maxWidth) {
             maxWidth = itemWidth;
         }
     });
-    
-    // Add some margin and tolerance space
     const padding = 40;
-    const newWidth = Math.max(300, maxWidth + padding); // Minimum width 300px
-    
-    // Get current node size
-    const currentSize = nodeInstance.size;
-    
-    // Adjust node size if calculated new width is greater than current width
-    if (newWidth > currentSize[0]) {
-        nodeInstance.setSize([newWidth, currentSize[1]]);
-        
-        // Trigger size change event to ensure layout update
-        if (nodeInstance.onResize) {
-            nodeInstance.onResize();
-        }
+    const newWidth = Math.max(300, maxWidth + padding);
+
+    // 高度计算（新增逻辑）
+    const itemHeight = 20; // 每条信息估算高度
+    const buttonHeight = 28; // 按钮固定高度
+    const buttonMarginBottom = 12;
+    const containerPadding = 20; // 上下 padding 共计
+    const newHeight = Math.max(150, infoItems.length * itemHeight + buttonHeight + buttonMarginBottom + containerPadding);
+
+    // 设置新尺寸
+    nodeInstance.setSize([newWidth, newHeight]);
+
+    // 触发尺寸变更回调
+    if (nodeInstance.onResize) {
+        nodeInstance.onResize();
     }
 }
